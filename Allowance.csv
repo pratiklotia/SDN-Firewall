@@ -1,0 +1,3 @@
+id,src_ip,src_port,dst_ip,dst_port
+1,10.0.0.1,80,10.0.0.2,any
+2,10.0.0.1,80,10.0.0.3,any

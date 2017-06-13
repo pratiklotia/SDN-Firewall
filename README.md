@@ -27,17 +27,24 @@ Solution:
 
 Procedure to run the code: (please ensure internet connectivity and connectivity between the Ryu & Mininet VM before starting the procedure).
 1. Paste the configuration file named ‘Allowance.csv’ in the Ryu VM’s /home/sdn/ directory.
+
 2. Start the Ryu Controller along with the OneFirewall.py program (Please note the IP address of this VM beforehand – using ‘ifconfig’). The OneFirewall.py program must be stored at /usr/local/lib/python2.7/dist-packages/ryu/app/
 This is same location where in-built programs like SimpleSwitch.py are stored.
 sudo ryu run OneFirewall.py --observe-links --verbose
+
 3. Create a simple Mininet topology, preferably using one switch and few hosts.
 Eg. sudo mn --controller=remote,ip=<ipaddr> --mac --switch ovs,protocols=OpenFlow13 --topo single,7 --ipbase=10.0.0.1/24
 Where <ipaddr> is the IP address of your Ryu controller such as ‘192.168.56.111’.
+
 4 Execute ‘pingall’ from the Mininet shell.
+
 5 The configuration file (Allowance.csv) is configured to allow TCP traffic between HTTP port of host 1 (having IP Address 10.0.0.1) & host 2 (IP Address 10.0.0.2) and between HTTP port of host 1 & host 3 (IP Address 10.0.0.3).
+
 6 The program can be tested by starting a HTTP server on host 1 with the command ‘h1 python –m SimpleHTTPServer 80 &’. Next execute ‘h2 wget h1’. You will see that h2 client receives HTTP traffic. Similarly, h3 client is also able to have HTTP traffic from host 1.
+
 7 Next try executing ‘h4 wget h1’. It will try to connect but will fail to establish any connection as
 the Firewall rules do not permit it. Similarly any communication between other HTTP servers and clients shall also be blocked.
+
 8 If you are trying to alter the Allowance.csv file, please ensure that you follow the format.
 
 

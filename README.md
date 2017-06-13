@@ -19,7 +19,11 @@ Mininet: Mininet creates a realistic virtual network, running real kernel, switc
 
 
 
+Task:
+Layer 4 firewall using Ryu as your controller. This firewall should allow TCP traffic based on 4 tuples (src_ip, dst_ip, src_port, dst_port) that you provide as an input via a csv or a config file pre-defined within the firewall application. Allowing only TCP traffic is a condition you should not overlook. To modify the firewall rules, the config file has to be edited and the ryu firewall app has to be restarted. The firewall app code does not have to be edited for a change in firewall rules. Only tcp should be blocked, udp and icmp should be able to pass through.
 
+
+Solution:
 
 Procedure to run the code: (please ensure internet connectivity and connectivity between the Ryu & Mininet VM before starting the procedure).
 1. Paste the configuration file named ‘Allowance.csv’ in the Ryu VM’s /home/sdn/ directory.

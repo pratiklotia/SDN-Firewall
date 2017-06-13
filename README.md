@@ -37,7 +37,6 @@ Where <ipaddr> is the IP address of your Ryu controller such as ‘192.168.56.11
 5 The configuration file (Allowance.csv) is configured to allow TCP traffic between HTTP port of host 1 (having IP Address 10.0.0.1) & host 2 (IP Address 10.0.0.2) and between HTTP port of host 1 & host 3 (IP Address 10.0.0.3).
 6 The program can be tested by starting a HTTP server on host 1 with the command ‘h1 python –m SimpleHTTPServer 80 &’. Next execute ‘h2 wget h1’. You will see that h2 client receives HTTP traffic. Similarly, h3 client is also able to have HTTP traffic from host 1.
 7 Next try executing ‘h4 wget h1’. It will try to connect but will fail to establish any connection as
-Lab 6: SDN Security 15
 the Firewall rules do not permit it. Similarly any communication between other HTTP servers and clients shall also be blocked.
 8 If you are trying to alter the Allowance.csv file, please ensure that you follow the format.
 
